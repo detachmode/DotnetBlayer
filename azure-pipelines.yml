@@ -28,7 +28,7 @@ steps:
     script: 'dir .'
 
 
-- task: DotNetCoreCLI@1
+- task: DotNetCoreCLI@2
   inputs:
     command: 'build'
     projects: 'Blayer.Contracts'
