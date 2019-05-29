@@ -8,31 +8,19 @@
 trigger:
 - master
 
-
+variables:
+  BuildConfiguration : 'Release'
 
 pool:
   vmImage: 'vs2017-win2016'
 
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
 
 - task: DotNetCoreInstaller@0
   displayName: 'Installing .NET Core SDK...'
   inputs:
     version: 3.0.100-preview-010184
-
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
-
-- task: CmdLine@2
-  inputs:
-    script: 'dir .'
 
 
 - task: DotNetCoreCLI@2
@@ -42,13 +30,8 @@ steps:
     feedsToUse: 'select'
     versioningScheme: 'off'
 
-
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'build'
-    projects: './ExampleApp/ExampleApp.csproj'
-    feedsToUse: 'select'
-    versioningScheme: 'off'
+- script: dotnet build --configuration $(buildConfiguration) --project ./ExampleApp/ExampleApp.csproj
+  displayName: 'dotnet build $(buildConfiguration) '
 
 - task: DotNetCoreCLI@2
   displayName: 'Publishing App...'
