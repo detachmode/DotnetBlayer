@@ -49,3 +49,14 @@ steps:
     projects: './ExampleApp/ExampleApp.csproj'
     feedsToUse: 'select'
     versioningScheme: 'off'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Publishing App...'
+  inputs:
+    command: publish
+    publishWebProjects: true
+    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    zipAfterPublish: false
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publishing Build Artifacts...'
