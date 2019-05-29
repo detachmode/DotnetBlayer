@@ -1,0 +1,49 @@
+﻿@page "/"
+
+<div>
+
+<h1>Build a component</h1>
+
+@foreach (var i in found)
+{
+    <div>
+        <button class="btn btn-primary" onclick="@(_ => RenderComponent(i) )">@i.FullName</button>
+
+    </div>
+}
+
+</div>
+
+
+
+
+
+@CustomRender
+
+
+@functions {
+    private RenderFragment CustomRender { get; set; }
+
+    Type[] found;
+
+    protected override void OnInit()
+    {
+        var ui = BlaToolHelper.GetFromExampleDll();
+        found = ui.ToArray();
+
+    }
+    
+    private RenderFragment CreateComponent(Type t) => builder =>
+    {
+
+        builder.OpenComponent(0, t);
+        builder.CloseComponent();
+        
+    };    
+    
+    private void RenderComponent(Type t)
+    {
+
+        CustomRender = CreateComponent(t);
+    }
+}
