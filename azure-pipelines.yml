@@ -13,9 +13,16 @@ trigger:
 pool:
   vmImage: 'vs2017-win2016'
 
+
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
+
+
+- task: DotNetCoreInstaller@0
+  displayName: 'Installing .NET Core SDK...'
+  inputs:
+    version: 3.0.100-preview-010184
 
 
 - script: |
