@@ -1,0 +1,48 @@
+﻿@page "/"
+
+<div>
+
+<h1>Build a component</h1>
+
+@foreach (var i in found)
+{
+    <div>
+        <button class="btn btn-primary" onclick="@(_ => RenderComponent(i) )">@i.GetType().FullName</button>
+
+    </div>
+}
+
+
+</div>
+
+
+@CustomRender
+
+
+@functions {
+    private RenderFragment CustomRender { get; set; }
+
+    IBlayerTool[] found;
+
+
+
+    protected override void OnInit()
+    {
+        found = BlaToolHelper.GetFromExampleDll();
+        
+
+    }
+    
+    private RenderFragment CreateComponent(IBlayerTool tool) => builder =>
+    {
+        builder.OpenComponent<DotnetBlayer.BlayerBase>(0);
+        builder.AddAttribute(1, "Tool", Microsoft.AspNetCore.Components.RuntimeHelpers.TypeCheck<DotnetBlayer.IBlayerTool>(tool));
+        builder.CloseComponent();
+
+    };    
+    
+    private void RenderComponent(IBlayerTool tool)
+    {
+        CustomRender = CreateComponent(tool);
+    }
+}

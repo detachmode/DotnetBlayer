@@ -1,0 +1,9 @@
+C:\Users\de6mu7\Desktop\Blayer\DotnetBlayer\Blayer.Contracts\bin\Debug\netstandard2.0\Blayer.Contracts.deps.json
+C:\Users\de6mu7\Desktop\Blayer\DotnetBlayer\Blayer.Contracts\bin\Debug\netstandard2.0\Blayer.Contracts.dll
+C:\Users\de6mu7\Desktop\Blayer\DotnetBlayer\Blayer.Contracts\bin\Debug\netstandard2.0\Blayer.Contracts.pdb
+C:\Users\de6mu7\Desktop\Blayer\DotnetBlayer\Blayer.Contracts\obj\Debug\netstandard2.0\Blayer.Contracts.csprojAssemblyReference.cache
+C:\Users\de6mu7\Desktop\Blayer\DotnetBlayer\Blayer.Contracts\obj\Debug\netstandard2.0\Blayer.Contracts.csproj.CoreCompileInputs.cache
+C:\Users\de6mu7\Desktop\Blayer\DotnetBlayer\Blayer.Contracts\obj\Debug\netstandard2.0\Blayer.Contracts.AssemblyInfoInputs.cache
+C:\Users\de6mu7\Desktop\Blayer\DotnetBlayer\Blayer.Contracts\obj\Debug\netstandard2.0\Blayer.Contracts.AssemblyInfo.cs
+C:\Users\de6mu7\Desktop\Blayer\DotnetBlayer\Blayer.Contracts\obj\Debug\netstandard2.0\Blayer.Contracts.dll
+C:\Users\de6mu7\Desktop\Blayer\DotnetBlayer\Blayer.Contracts\obj\Debug\netstandard2.0\Blayer.Contracts.pdb
