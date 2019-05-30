@@ -8,7 +8,6 @@
   
   <ItemGroup>
     <ProjectReference Include="..\Blayer.Contracts\Blayer.Contracts.csproj" />
-      <ProjectReference Include="..\ExampleApp\ExampleApp.csproj" />
   </ItemGroup>
 
 </Project>

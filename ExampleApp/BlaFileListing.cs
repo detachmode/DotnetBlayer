@@ -15,7 +15,7 @@ namespace DotnetBlayer
             return new JsonView(
                 new BDiv(
                     new BBHeader("List Downloads"),
-                    new BButton("List files in folder")
+                    new BButton("List it fooo!")
                     {
                         OnClick = () =>
                         {

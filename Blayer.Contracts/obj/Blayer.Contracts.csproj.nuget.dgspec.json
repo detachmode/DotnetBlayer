@@ -1,41 +1,35 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\de6mu7\\Desktop\\Blayer\\DotnetBlayer\\Blayer.Contracts\\Blayer.Contracts.csproj": {}
+    "/Users/dennismuller/DotnetBlayer/Blayer.Contracts/Blayer.Contracts.csproj": {}
   },
   "projects": {
-    "C:\\Users\\de6mu7\\Desktop\\Blayer\\DotnetBlayer\\Blayer.Contracts\\Blayer.Contracts.csproj": {
+    "/Users/dennismuller/DotnetBlayer/Blayer.Contracts/Blayer.Contracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\de6mu7\\Desktop\\Blayer\\DotnetBlayer\\Blayer.Contracts\\Blayer.Contracts.csproj",
+        "projectUniqueName": "/Users/dennismuller/DotnetBlayer/Blayer.Contracts/Blayer.Contracts.csproj",
         "projectName": "Blayer.Contracts",
-        "projectPath": "C:\\Users\\de6mu7\\Desktop\\Blayer\\DotnetBlayer\\Blayer.Contracts\\Blayer.Contracts.csproj",
-        "packagesPath": "C:\\Users\\de6mu7\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\de6mu7\\Desktop\\Blayer\\DotnetBlayer\\Blayer.Contracts\\obj\\",
+        "projectPath": "/Users/dennismuller/DotnetBlayer/Blayer.Contracts/Blayer.Contracts.csproj",
+        "packagesPath": "/Users/dennismuller/.nuget/packages/",
+        "outputPath": "/Users/dennismuller/DotnetBlayer/Blayer.Contracts/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\NuGet.Config",
-          "C:\\Users\\de6mu7\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\ServiceFabricSDK.config"
+          "/Users/dennismuller/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\Microsoft SDKs\\Service Fabric\\packages\\": {},
           "https://api.nuget.org/v3/index.json": {},
           "https://dotnetfeed.blob.core.windows.net/aspnet-aspnetcore-tooling/index.json": {},
           "https://dotnetfeed.blob.core.windows.net/aspnet-aspnetcore/index.json": {},
           "https://dotnetfeed.blob.core.windows.net/aspnet-entityframeworkcore/index.json": {},
           "https://dotnetfeed.blob.core.windows.net/aspnet-extensions/index.json": {},
           "https://dotnetfeed.blob.core.windows.net/dotnet-core/index.json": {},
-          "https://dotnetfeed.blob.core.windows.net/dotnet-windowsdesktop/index.json": {},
-          "https://vanstelematics.pkgs.visualstudio.com/_packaging/Daimler.Van.SPP.Feed/nuget/v3/index.json": {}
+          "https://dotnetfeed.blob.core.windows.net/dotnet-windowsdesktop/index.json": {}
         },
         "frameworks": {
           "netstandard2.0": {

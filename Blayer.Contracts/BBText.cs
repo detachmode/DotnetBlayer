@@ -15,26 +15,4 @@ namespace BlayerUI.Shared
 
         public override string Tag => "p";
     }
-    public class BBHeader : BElement
-    {
-        public BBHeader()
-        {
-        }
-
-        public BBHeader(string text)
-        {
-            InnerText = text;
-        }
-
-        public override string Tag => "h1";
-    }
-    public class BDiv : BElement
-    {
-        public BDiv(params BElement[] inner)
-        {
-            InnerElements = inner.ToList();
-        }
-
-        public new string Tag => "div";
-    }
 }
