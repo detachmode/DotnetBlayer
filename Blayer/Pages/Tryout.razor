@@ -2,16 +2,28 @@
 
 @inject Interactive<Api> Interactive
 
-<main>
+<main >
+    <div class="container">
+  <div class="row">
+    <div class="col-sm">
+      One of three columns
+    </div>
 
-<input style="width:80vw" bind="@Code"/>
+    <div class="col-sm">
+      One of three columns
+    <input style="width:100%" bind="@Code"/>
 
-<button onchange="@Run" onclick="@Run">Eval</button>
+    <button onchange="@Run" onclick="@Run">Eval</button>
 
-@foreach (var res in Results)
-{
-    <p>@res</p>
-}
+    @foreach (var res in Results)
+    {
+        <p>@res</p>
+    }
+    </div>
+  </div>
+</div>
+
+
 
 </main>
 

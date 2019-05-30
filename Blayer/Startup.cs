@@ -21,7 +21,8 @@ namespace DotnetBlayer
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<WeatherForecastService>();
+            services.AddSingleton<Api>();
+            services.AddSingleton<Interactive<Api>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
