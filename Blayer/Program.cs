@@ -23,7 +23,9 @@ namespace DotnetBlayer
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
 
-                    webBuilder.UseStartup<Startup>().UseUrls("http://localhost:5555");
+                    webBuilder.UseStartup<Startup>().UseUrls(
+                        "http://localhost:5555",
+                    "https://localhost:5556");
                 });
     }
 }
