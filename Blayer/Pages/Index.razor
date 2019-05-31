@@ -1,44 +1,104 @@
-﻿@page "/"
+@page "/"
 
-<div>
-
-
-<h1>Build a component</h1>
-<button class="btn btn-primary" >Load something</button>
+@inject Interactive<Api> Interactive
+@inject Api Api
 
 
+<main >
+    <div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <button class="btn btn-success" onchange="@Run" onclick="@Run">Run</button>
+      <Editor ref="@Editor"></Editor>
+    </div>
 
+    <div class="col-sm">
+    
+    <input  style="width:100%; visibility:hidden" bind="@Code"/>
+
+    <BlayerToolRenderer Tool="@Tool"></BlayerToolRenderer>
+
+    
+
+    @foreach (var res in Results)
+    {
+        <p >@res</p>
+    }
+    </div>
+  </div>
 </div>
 
 
-@CustomRender
+
+</main>
 
 
-@functions {
-    private RenderFragment CustomRender { get; set; }
-
-    IBlayerTool[] found;
+@functions{
 
 
+    public IBlayerTool Tool { get; set; }
+    public Editor Editor { get; set; }
+    public string Code { get; set; }
+    public List<string> Results { get; set; }
+    public bool InitalLoadDone { get; set; }
 
-    protected override void OnInit()
+    protected override async Task OnAfterRenderAsync()
     {
-        
-       // found = BlaToolHelper.GetFromExampleDll();
-        
-
+        if(!InitalLoadDone)
+        {
+            var code = await new HttpClient().GetStringAsync("https://localhost:5556/examples/example1.txt");
+            await Editor.SetValue(code);
+            InitalLoadDone =true;
+        }
     }
-    
-    private RenderFragment CreateComponent(IBlayerTool tool) => builder =>
-    {
-        builder.OpenComponent<DotnetBlayer.BlayerBase>(0);
-        builder.AddAttribute(1, "Tool", Microsoft.AspNetCore.Components.RuntimeHelpers.TypeCheck<DotnetBlayer.IBlayerTool>(tool));
-        builder.CloseComponent();
 
-    };    
-    
-    private void RenderComponent(IBlayerTool tool)
+    protected override async Task OnInitAsync()
     {
-        CustomRender = CreateComponent(tool);
+
+        Results = new List<string>();
+        
+        await Interactive.Init();
+
+        Api.Clear = () => {
+            this.Invoke(() => {
+                Results.Clear();
+                StateHasChanged();
+            });
+        };
+
+        Api.OnBlayerTool = (t) => {
+            this.Invoke(() => {
+                Tool = t;
+                StateHasChanged();
+            });
+        };
+
+        Api.Print = (txt) => {
+            this.Invoke(() =>
+            { 
+                Results.Add(txt);
+                StateHasChanged();
+
+            });
+        };
+
+   
+        
+        
+        //MainViewModel.InteractiveOut = (s) => Results.Add(s);
     }
+
+
+    async Task Run()
+    {
+        var val = await Editor.GetValue();
+        var res = await Interactive.Eval(val);
+        Results.Add(res);
+        StateHasChanged();
+    }
+
+    
 }
+
+
+
