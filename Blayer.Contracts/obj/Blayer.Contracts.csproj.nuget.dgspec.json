@@ -20,7 +20,7 @@
           "/Users/dennismuller/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "netstandard2.0"
+          "netcoreapp3.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {},
@@ -32,7 +32,7 @@
           "https://dotnetfeed.blob.core.windows.net/dotnet-windowsdesktop/index.json": {}
         },
         "frameworks": {
-          "netstandard2.0": {
+          "netcoreapp3.0": {
             "projectReferences": {}
           }
         },
@@ -43,20 +43,22 @@
         }
       },
       "frameworks": {
-        "netstandard2.0": {
-          "dependencies": {
-            "NETStandard.Library": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.0.3, )",
-              "autoReferenced": true
-            }
-          },
+        "netcoreapp3.0": {
           "imports": [
             "net461"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[3.0.0-preview5-27626-15, 3.0.0-preview5-27626-15]"
+            }
+          ],
+          "frameworkReferences": [
+            "Microsoft.AspNetCore.App",
+            "Microsoft.NETCore.App"
+          ]
         }
       }
     }

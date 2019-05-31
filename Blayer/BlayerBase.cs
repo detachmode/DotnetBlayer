@@ -23,6 +23,7 @@ namespace DotnetBlayer
                     EventCallback.Factory.Create<UIMouseEventArgs>(this, (e) =>
                     {
                         uiElement.OnClick();
+                        this.Invoke(() => StateHasChanged());
                     }));
             }
 

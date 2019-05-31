@@ -1,31 +1,18 @@
-﻿@page "/"
-
-<div>
-
-
-<h1>Build a component</h1>
-<button class="btn btn-primary" >Load something</button>
-
-
-
-</div>
-
-
+﻿
 @CustomRender
 
 
 @functions {
     private RenderFragment CustomRender { get; set; }
 
-    IBlayerTool[] found;
+    [Parameter] public IBlayerTool Tool { get; set; }
 
-
-
-    protected override void OnInit()
+    protected override void OnParametersSet()
     {
-        
-       // found = BlaToolHelper.GetFromExampleDll();
-        
+        if(Tool != null)
+        {
+            CustomRender = CreateComponent(Tool);
+        }
 
     }
     
@@ -34,11 +21,6 @@
         builder.OpenComponent<DotnetBlayer.BlayerBase>(0);
         builder.AddAttribute(1, "Tool", Microsoft.AspNetCore.Components.RuntimeHelpers.TypeCheck<DotnetBlayer.IBlayerTool>(tool));
         builder.CloseComponent();
-
     };    
-    
-    private void RenderComponent(IBlayerTool tool)
-    {
-        CustomRender = CreateComponent(tool);
-    }
+
 }

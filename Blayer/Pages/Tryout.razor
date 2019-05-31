@@ -1,23 +1,28 @@
 @page "/tryout"
 
 @inject Interactive<Api> Interactive
+@inject Api Api
+
 
 <main >
     <div class="container">
   <div class="row">
     <div class="col-sm">
-      One of three columns
+      <button class="btn btn-success" onchange="@Run" onclick="@Run">Run</button>
+      <Editor ref="@Editor"></Editor>
     </div>
 
     <div class="col-sm">
-      One of three columns
-    <input style="width:100%" bind="@Code"/>
+    
+    <input  style="width:100%; visibility:hidden" bind="@Code"/>
 
-    <button onchange="@Run" onclick="@Run">Eval</button>
+    <BlayerToolRenderer Tool="@Tool"></BlayerToolRenderer>
+
+    
 
     @foreach (var res in Results)
     {
-        <p>@res</p>
+        <p >@res</p>
     }
     </div>
   </div>
@@ -30,22 +35,57 @@
 
 @functions{
 
+
+    public IBlayerTool Tool { get; set; }
+    public Editor Editor { get; set; }
     public string Code { get; set; }
     public List<string> Results { get; set; }
 
+    
 
 
     protected override async Task OnInitAsync()
     {
+        //var code = await HttpClient.GetStringAsync("/examples/examples.csx");
+      
         Results = new List<string>();
+        
         await Interactive.Init();
+
+        Api.Clear = () => {
+            this.Invoke(() => {
+                Results.Clear();
+                StateHasChanged();
+            });
+        };
+
+        Api.OnBlayerTool = (t) => {
+            this.Invoke(() => {
+                Tool = t;
+                StateHasChanged();
+            });
+        };
+
+        Api.Print = (txt) => {
+            this.Invoke(() =>
+            { 
+                Results.Add(txt);
+                StateHasChanged();
+
+            });
+        };
+
+   
+        
         
         //MainViewModel.InteractiveOut = (s) => Results.Add(s);
     }
 
+
     async Task Run()
     {
-        var res = await Interactive.Eval(Code);
+        var val = await Editor.GetValue();
+        var res = await Interactive.Eval(val);
         Results.Add(res);
         StateHasChanged();
     }

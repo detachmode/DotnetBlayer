@@ -29,7 +29,7 @@ namespace DotnetBlayer
 
             if (context != null)
             {
-                context.Unload();
+                // context.Unload();
                 // for (int i = 0; alcWeakRef.IsAlive && (i < 10); i++)
                 // {
                 //     System.Console.WriteLine("GC caöllll");
