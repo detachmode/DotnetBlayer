@@ -41,13 +41,16 @@
     public string Code { get; set; }
     public List<string> Results { get; set; }
 
-    
+    protected override async Task OnAfterRenderAsync()
+    {
+         var code = await new HttpClient().GetStringAsync("https://localhost:5556/examples/example1.txt");
+         await Editor.SetValue(code);
+    }
 
 
     protected override async Task OnInitAsync()
     {
-        //var code = await HttpClient.GetStringAsync("/examples/examples.csx");
-      
+
         Results = new List<string>();
         
         await Interactive.Init();
