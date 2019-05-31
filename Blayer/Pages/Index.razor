@@ -3,34 +3,53 @@
 @inject Interactive<Api> Interactive
 @inject Api Api
 
+<div style="height:100vh; width: 100vw;">
+<GridLayout Areas="
+    'top top'
+    'edit ui'
+    'cout ui'
+    'cin ui'
+"
+  Rows="30px 1fr 100px 30px"
+  Columns="50vw 50vw"
+>
+<GridArea Area="top">
 
-<main >
-    <div class="container">
-  <div class="row">
-    <div class="col-sm">
-      <button class="btn btn-success" onchange="@Run" onclick="@Run">Run</button>
-      <Editor ref="@Editor"></Editor>
-    </div>
+    <div style="
+    text-align: center;
+">
+    <button style="width:200px" class="btn btn-success" onchange="@Run" onclick="@Run">Run</button>
+</div>
 
-    <div class="col-sm">
-    
-    <input  style="width:100%; visibility:hidden" bind="@Code"/>
+</GridArea>
+<GridArea Area="edit">
+     <Editor ref="@Editor"></Editor>
+</GridArea>
+<GridArea Area="ui">
 
     <BlayerToolRenderer Tool="@Tool"></BlayerToolRenderer>
 
-    
+</GridArea>
+<GridArea Area="cout">
+   
 
     @foreach (var res in Results)
     {
         <p >@res</p>
     }
-    </div>
-  </div>
+
+</GridArea>
+<GridArea Area="cin">
+        <input  style="width:100%;" bind="@Code"/>
+</GridArea>
+
+
+</GridLayout>
+
 </div>
 
 
 
-</main>
 
 
 @functions{

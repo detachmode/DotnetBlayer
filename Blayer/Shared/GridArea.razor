@@ -1,0 +1,26 @@
+
+<div  style="@ElementStyle">
+    @ChildContent
+</div>
+
+@functions
+{
+    string ElementStyle;
+    [Parameter]public string Area { get; set; } = "";
+    [Parameter] private RenderFragment ChildContent { get; set; }
+
+    protected override void OnParametersSet()
+    {
+       
+
+    var sb = $@"
+    grid-area : {Area};
+
+    overflow : hidden;
+    
+    ";
+
+        ElementStyle = sb;
+          
+    }
+}
