@@ -82,9 +82,15 @@
     public List<ScriptVariable> AllVariables { get; set; }
     public bool InitalLoadDone { get; set; }
 
+    public void Foo(string name, string style = null)
+    {
+
+    }
+
 
     protected override async Task OnAfterRenderAsync()
     {
+        Foo("fello");
         if(!InitalLoadDone)
         {
             var code = await new HttpClient().GetStringAsync("https://localhost:5556/examples/example1.txt");
@@ -120,6 +126,11 @@
         Api.OnBlayerTool = (t) => {
             this.Invoke(() => {
                 Tool = t;
+                StateHasChanged();
+            });
+        };
+        Api.StateHasChanged = () => {
+            this.Invoke(() => {
                 StateHasChanged();
             });
         };

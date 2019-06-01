@@ -1,32 +1,39 @@
 using System;
 using BlayerUI.Shared;
+using Microsoft.AspNetCore.Components.RenderTree;
 
 namespace DotnetBlayer
 {
     public class InteractiveBlayerTool : IBlayerTool
     {
-        private readonly JsonView view;
+        
+        private readonly Action<RenderTreeBuilder> onBuilder;
 
-        public InteractiveBlayerTool(JsonView view)
+        public InteractiveBlayerTool(Action<RenderTreeBuilder> builder)
         {
-            this.view = view;
+            
+            this.onBuilder = builder;
         }
 
-        public JsonView View()
+        public void Render(RenderTreeBuilder builder)
         {
-            System.Console.WriteLine("called VIEW");
-            return view;
+         
+            System.Console.WriteLine("called RENDER");
+            onBuilder(builder);
         }
+
     }
 
     public class Api {
         public Action<string> Print { get; set; }
+        public  Action StateHasChanged { get; set; }
+
         public Action<IBlayerTool> OnBlayerTool { get; set; }
         public Action Clear { get; set; }
 
-        public void Show(JsonView view)
+        public void Show(Action<RenderTreeBuilder> onBuilder)
         {
-            OnBlayerTool(new InteractiveBlayerTool(view));
+            OnBlayerTool(new InteractiveBlayerTool(onBuilder));
         }
 
     }

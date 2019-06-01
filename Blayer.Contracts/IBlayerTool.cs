@@ -6,6 +6,6 @@ namespace DotnetBlayer
 {       
     public interface IBlayerTool
     {
-        JsonView View();
+        void Render(RenderTreeBuilder builder);
     }
 }
