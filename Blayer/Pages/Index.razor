@@ -2,13 +2,14 @@
 
 @inject Interactive<Api> Interactive
 @inject Api Api
+@inject IJSRuntime JSRuntime
 
 <div style="height:100vh; width: 100vw;">
 <GridLayout Areas="
     'top top'
     'edit ui'
-    'cout ui'
-    'cin ui'
+    'cout vars'
+    'cin vars'
 "
   Rows="30px 1fr 100px 30px"
   Columns="50vw 50vw"
@@ -25,22 +26,40 @@
 <GridArea Area="edit">
      <Editor ref="@Editor"></Editor>
 </GridArea>
-<GridArea Area="ui">
+<GridArea Area="ui" Scrollable="true">
 
     <BlayerToolRenderer Tool="@Tool"></BlayerToolRenderer>
 
 </GridArea>
-<GridArea Area="cout">
+<GridArea Area="cout" Scrollable="true">
    
+<div style="padding:6px;line-height: 1.0; font-size:0.9rem">
+
 
     @foreach (var res in Results)
     {
-        <p >@res</p>
+        var id = res == LastResult ? "lastCout" : "";
+        <p id="@id" style="margin: 0px">
+@res.Text
+        </p>
+        
     }
+</div>
 
 </GridArea>
 <GridArea Area="cin">
-        <input  style="width:100%;" bind="@Code"/>
+        <input  onkeydown="@CinKeyDown"  style="width:100%;" bind-value-oninput="@Code"/>
+</GridArea>
+<GridArea Area="vars" Scrollable="true">
+    @if(AllVariables != null)
+    {
+        foreach (var v in AllVariables)
+        {
+            @v.Name <text>:</text> @v.Value
+            <br/>
+        }
+    }
+ 
 </GridArea>
 
 
@@ -58,8 +77,11 @@
     public IBlayerTool Tool { get; set; }
     public Editor Editor { get; set; }
     public string Code { get; set; }
-    public List<string> Results { get; set; }
+    public List<CoutRes> Results { get; set; }
+    public CoutRes LastResult { get; set; }
+    public List<ScriptVariable> AllVariables { get; set; }
     public bool InitalLoadDone { get; set; }
+
 
     protected override async Task OnAfterRenderAsync()
     {
@@ -71,10 +93,20 @@
         }
     }
 
+    async Task CinKeyDown(UIKeyboardEventArgs arg)
+    {
+        if(arg.Key == "Enter")
+        {
+            var res = await Interactive.Eval(Code);
+            await Print(res);
+            AllVariables = Interactive.GetAllVariables();
+        }
+    }
+
     protected override async Task OnInitAsync()
     {
 
-        Results = new List<string>();
+        Results = new List<CoutRes>();
         
         await Interactive.Init();
 
@@ -93,11 +125,9 @@
         };
 
         Api.Print = (txt) => {
-            this.Invoke(() =>
+            this.InvokeAsync(async () =>
             { 
-                Results.Add(txt);
-                StateHasChanged();
-
+                await Print(txt);
             });
         };
 
@@ -108,12 +138,41 @@
     }
 
 
+    public class CoutRes
+    {
+        public string Text {get; set;}
+    }
+
+    
+
+
     async Task Run()
     {
         var val = await Editor.GetValue();
         var res = await Interactive.Eval(val);
-        Results.Add(res);
-        StateHasChanged();
+        await Print(res);
+
+        AllVariables = Interactive.GetAllVariables();
+        
+    }
+
+    async Task Print(string res)
+    {
+        var cout = new CoutRes{
+            Text = res
+        };
+        Results.Add(cout);
+        LastResult = cout;
+
+        await this.Invoke( () =>
+        { 
+            StateHasChanged();
+        });
+
+        await Task.Delay(10);
+    
+   
+        await JSRuntime.ScrollIntoView("lastCout");
     }
 
     

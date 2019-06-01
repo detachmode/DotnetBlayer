@@ -1,3 +1,4 @@
+using System;
 using BlayerUI.Shared;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.RenderTree;
@@ -22,8 +23,11 @@ namespace DotnetBlayer
                 builder.AddAttribute(++seq, "onclick",
                     EventCallback.Factory.Create<UIMouseEventArgs>(this, (e) =>
                     {
-                        uiElement.OnClick();
-                        this.Invoke(() => StateHasChanged());
+                        WithErrorHandling(() => {
+                            uiElement.OnClick();
+                            this.Invoke(() => StateHasChanged());
+                        });
+                        
                     }));
             }
 
@@ -40,6 +44,19 @@ namespace DotnetBlayer
             }
             builder.CloseElement();
             return seq;
+        }
+
+        private void WithErrorHandling(Action f)
+        {
+            try
+            {
+                f();
+            }
+            catch (System.Exception e)
+            {
+                
+                Print(e);
+            }
         }
 
         public JsonView _ui { get; private set; }

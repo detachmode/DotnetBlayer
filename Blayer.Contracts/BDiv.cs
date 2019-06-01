@@ -9,6 +9,6 @@ namespace BlayerUI.Shared
             InnerElements = inner?.ToList();
         }
 
-        public new string Tag => "div";
+        public override string Tag => "div";
     }
 }
