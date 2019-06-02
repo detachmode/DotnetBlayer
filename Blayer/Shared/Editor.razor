@@ -1,4 +1,5 @@
-﻿
+﻿@inject IJSRuntime JSRuntime
+
 <MonacoEditor ref="_editor" Model="@_editorModel" FullScreen="true" />
 
 @functions
@@ -35,5 +36,9 @@ _editorModel = new EditorModel(options);
     {
         var val = await _editor.GetValue();
         return val;
+    }
+    public async Task Layout()
+    {
+        await JSRuntime.InvokeAsync<bool>("Blazaco.Editor.Layout", new[] { _editorModel.Id });
     }
 }

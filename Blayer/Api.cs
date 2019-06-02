@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using BlayerUI.Shared;
 using Microsoft.AspNetCore.Components.RenderTree;
 
@@ -27,6 +28,8 @@ namespace DotnetBlayer
     public class Api {
         public Action<string> Print { get; set; }
         public  Action StateHasChanged { get; set; }
+        public Func<Task<string>> GetEditorText { get; set; }
+         public Action<string> SetEditorText { get; set; }
 
         public Action<IBlayerTool> OnBlayerTool { get; set; }
         public Action Clear { get; set; }

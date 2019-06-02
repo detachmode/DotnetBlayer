@@ -19,6 +19,14 @@ window.Blazaco.Editor = {
         }
         return myEditor.editor.getValue();
     },
+    Layout: function (id) {
+        let myEditor = window.Blazaco.Editors.find(e => e.id === id);
+        if (!myEditor) {
+            throw `Could not find a editor with id: '${window.Blazaco.Editors.length}' '${id}'`;
+        }
+        myEditor.editor.layout()
+        return myEditor.editor.getValue();
+    },
     SetValue: function (id, value) {
         let myEditor = window.Blazaco.Editors.find(e => e.id === id);
         if (!myEditor) {

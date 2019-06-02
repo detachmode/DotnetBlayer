@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using System.Threading.Tasks;
 using DotnetBlayer;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Scripting;
 using Microsoft.CodeAnalysis.Scripting;
 using Microsoft.Extensions.Hosting;
@@ -99,9 +101,14 @@ namespace DotnetBlayer
 
         private async Task<ScriptState> InitStateAsync()
         {
+
+
+          
             var options = ScriptOptions.Default
-                  .WithReferences(typeof(Program).Assembly)
-                  .WithImports(
+                .WithReferences(typeof(Program).Assembly)
+                .WithSourceResolver(new SourceFileResolver(
+                    ImmutableArray<string>.Empty, Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)))
+                .WithImports(
                       "System.Collections.Generic",
                       "System",
                       "System.Linq"

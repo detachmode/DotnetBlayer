@@ -16,9 +16,16 @@
 >
 <GridArea Area="top">
 
+
+
     <div style="
     text-align: center;
 ">
+    <button onclick="@(() => Editor.Layout())">Layout</button>
+    <button 
+        onclick="@ToogleFullScreen">
+        @(IsFullScreen ? "Close" : "Fullscreen")
+        </button>
     <button style="width:200px" class="btn btn-success" onchange="@Run" onclick="@Run">Run</button>
 </div>
 
@@ -73,6 +80,8 @@
 
 @functions{
 
+    public bool IsFullScreen { get; set; }
+
 
     public IBlayerTool Tool { get; set; }
     public Editor Editor { get; set; }
@@ -82,15 +91,21 @@
     public List<ScriptVariable> AllVariables { get; set; }
     public bool InitalLoadDone { get; set; }
 
-    public void Foo(string name, string style = null)
+
+
+    async Task ToogleFullScreen()
     {
-
+        var jsfun = IsFullScreen ? "closeFullscreen" : "openFullscreen";
+        IsFullScreen = !IsFullScreen;
+        StateHasChanged();
+        await JSRuntime.InvokeAsync<bool>(jsfun);
+        await Editor.Layout();
+        
+        
     }
-
 
     protected override async Task OnAfterRenderAsync()
     {
-        Foo("fello");
         if(!InitalLoadDone)
         {
             var code = await new HttpClient().GetStringAsync("https://localhost:5556/examples/example1.txt");
@@ -121,6 +136,16 @@
                 Results.Clear();
                 StateHasChanged();
             });
+        };
+
+        Api.SetEditorText = (c) => {
+            this.Invoke(() => {
+                Editor.SetValue(c);
+            });
+        };
+
+        Api.GetEditorText = () => {       
+            return Editor.GetValue();        
         };
 
         Api.OnBlayerTool = (t) => {
