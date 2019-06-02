@@ -3,64 +3,15 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 using System.Threading.Tasks;
-using DotnetBlayer;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Scripting;
 using Microsoft.CodeAnalysis.Scripting;
-using Microsoft.Extensions.Hosting;
-using Microsoft.JSInterop;
 
 namespace DotnetBlayer
 {
-    static class BrowserInterop
-    {
-        public static Task<double> GetScrollTop(this IJSRuntime JSRuntime, string id)
-        {
-            return JSRuntime.InvokeAsync<double>("helper.getScrollTop",id);
-        }
-        public static Task<bool> IsScrolledToBottom(this IJSRuntime JSRuntime, string id)
-        {
-            try
-            {
-                return JSRuntime.InvokeAsync<bool>("helper.isScrolledToBottom", id);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"BrowserInterop.IsScrolledToBottom: {ex.GetBaseException().Message}");
-            }
-            return Task.FromResult(false);
-        }
-        public static Task<bool> ScrollIntoView(this IJSRuntime JSRuntime, string id)
-        {
-            return JSRuntime.InvokeAsync<bool>("helper.scrollIntoView", id);
-        }
-        public static Task<bool> SetFocus(this IJSRuntime JSRuntime, ElementRef elementRef)
-        {
-            return JSRuntime.InvokeAsync<bool>("helper.setFocus", elementRef);
-        }
-    }
-
-    public static class Extension
-    {
-        public static IEnumerable<TSource> DistinctBy<TSource, TKey>
-     (this IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
-        {
-            HashSet<TKey> knownKeys = new HashSet<TKey>();
-            foreach (TSource element in source)
-            {
-                if (knownKeys.Add(keySelector(element)))
-                {
-                    yield return element;
-                }
-            }
-        }
-    }
     public class Interactive<T>
     {
-        private ScriptState state;
-        private object _lock = new object();
+        public ScriptState State { get; private set; }
         private readonly T globals;
 
         public Interactive(T globals)
@@ -70,7 +21,7 @@ namespace DotnetBlayer
 
         public System.Collections.Generic.List<ScriptVariable> GetAllVariables()
         {
-            return state.Variables
+            return State.Variables
                 .Reverse()
                 .DistinctBy(x => x.Name)
                 .Reverse()
@@ -82,15 +33,20 @@ namespace DotnetBlayer
 
         public async Task Init()
         {
-            state = await InitStateAsync();
+            SearchPaths = new List<string>(new[] {
+                "DotnetBlayer",
+                "DotnetBlayer/BlayerTools",
+            });
+            State = await InitStateAsync();
+
         }
 
         public async Task<string> Eval(string code)
         {
             try
             {
-                state = await state.ContinueWithAsync(code);
-                return state.ReturnValue?.ToString() ?? "<empty>";
+                State = await State.ContinueWithAsync(code);
+                return State.ReturnValue?.ToString() ?? "<empty>";
 
             }
             catch (System.Exception e)
@@ -99,19 +55,26 @@ namespace DotnetBlayer
             }
         }
 
+        public List<string> SearchPaths { get; set; }
+
         private async Task<ScriptState> InitStateAsync()
         {
+            var paths = ImmutableArray<string>.Empty.AddRange(SearchPaths);
 
 
-          
             var options = ScriptOptions.Default
                 .WithReferences(typeof(Program).Assembly)
                 .WithSourceResolver(new SourceFileResolver(
-                    ImmutableArray<string>.Empty, Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)))
+                    paths, Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)))
                 .WithImports(
-                      "System.Collections.Generic",
-                      "System",
-                      "System.Linq"
+                    "System",
+                    "System.Linq",
+                    "System.Threading.Tasks",
+                    "BlayerUI.Shared",
+                    "DotnetBlayer",
+                    "Microsoft.AspNetCore.Components.RenderTree",
+                    "Microsoft.Extensions.DependencyInjection",
+                    "System.Collections.Generic"
                       );
 
             var finalScript = CSharpScript.Create("", options, typeof(T));

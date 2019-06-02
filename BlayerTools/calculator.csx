@@ -1,5 +1,5 @@
 #!/usr/bin/env dotnet-script
-#load "/Users/dennismuller/DotnetBlayer/BlayerTools/OtherUISyntax.csx"
+#load "/Users/dennismuller/DotnetBlayer/BlayerTools/ExperimentalUISyntax1.csx"
 using BlayerUI.Shared;
 using System.Collections.Generic;
 using System.Diagnostics;

@@ -7,6 +7,7 @@ namespace DotnetBlayer
 {
     public class InteractiveBlayerTool : IBlayerTool
     {
+
         
         private readonly Action<RenderTreeBuilder> onBuilder;
 
@@ -26,6 +27,17 @@ namespace DotnetBlayer
     }
 
     public class Api {
+        private readonly IServiceProvider provider;
+
+        public Api(IServiceProvider provider)
+        {
+            this.provider = provider;
+        }
+
+        public Interactive<Api> Interactive => GetService<Interactive<Api>>();
+
+        public T GetService<T>() => (T)provider.GetService(typeof(T));
+
         public Action<string> Print { get; set; }
         public  Action StateHasChanged { get; set; }
         public Func<Task<string>> GetEditorText { get; set; }
