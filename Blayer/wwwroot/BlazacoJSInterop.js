@@ -2,6 +2,9 @@ window.Blazaco = window.Blazaco || {};
 window.Blazaco.Editors = [];
 
 window.Blazaco.Editor = {
+
+
+
     InitializeEditor: function (model) {
         let thisEditor = monaco.editor.create(document.getElementById(model.id), model.options);
         if (window.Blazaco.Editors.find(e => e.id === model.id)) {
@@ -18,6 +21,14 @@ window.Blazaco.Editor = {
             throw `Could not find a editor with id: '${window.Blazaco.Editors.length}' '${id}'`;
         }
         return myEditor.editor.getValue();
+    },
+    GetSelectedText: function (id) {
+        let myEditor = window.Blazaco.Editors.find(e => e.id === id);
+        if (!myEditor) {
+            throw `Could not find a editor with id: '${window.Blazaco.Editors.length}' '${id}'`;
+        }
+        return myEditor.editor.getModel().getValueInRange(myEditor.editor.getSelection());
+   
     },
     Layout: function (id) {
         let myEditor = window.Blazaco.Editors.find(e => e.id === id);

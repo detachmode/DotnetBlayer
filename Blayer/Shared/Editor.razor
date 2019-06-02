@@ -41,4 +41,8 @@ _editorModel = new EditorModel(options);
     {
         await JSRuntime.InvokeAsync<bool>("Blazaco.Editor.Layout", new[] { _editorModel.Id });
     }
+    public async Task<string> GetSelectedText()
+    {
+        return await JSRuntime.InvokeAsync<string>("Blazaco.Editor.GetSelectedText", new[] { _editorModel.Id });
+    }
 }

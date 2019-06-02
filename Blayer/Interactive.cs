@@ -46,7 +46,7 @@ namespace DotnetBlayer
             try
             {
                 State = await State.ContinueWithAsync(code);
-                return State.ReturnValue?.ToString() ?? "<empty>";
+                return State.ReturnValue?.ToString() ?? "OK";
 
             }
             catch (System.Exception e)
