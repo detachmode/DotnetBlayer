@@ -1,5 +1,5 @@
 # DotnetBlayer
-A live dynamic environment for dotnet core, inspired by _Smaltalk Pharao_ and embedded scripting languages like _3dsmax MaxScript_.
+A **live dynamic environment** for dotnet core, inspired by _Smaltalk Pharao_ and embedded scripting languages like _3dsmax MaxScript_.
 
 ### Vision
 An easy to use framework for managing and creating cross plattform UIs  - powered by Blazor
