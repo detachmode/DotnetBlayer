@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Scripting;
 using Microsoft.CodeAnalysis.Scripting;
+using Microsoft.JSInterop;
 
 namespace DotnetBlayer
 {
@@ -40,12 +41,32 @@ namespace DotnetBlayer
             State = await InitStateAsync();
 
         }
+        public async Task<IEnumerable<Diagnostic>> GetErrors(string code)
+        {
+            var opts = ScriptOptions.Default.
+                AddImports("System");
+
+            var script = CSharpScript.Create(code, opts);
+            var compilation = script.GetCompilation();
+            var diagnostics = compilation.GetDiagnostics();
+            return diagnostics;
+
+        }
+
+
+
+
+        
+
+        
+
 
         public async Task<string> Eval(string code)
         {
             try
             {
                 State = await State.ContinueWithAsync(code);
+
                 return State.ReturnValue?.ToString() ?? "OK";
 
             }

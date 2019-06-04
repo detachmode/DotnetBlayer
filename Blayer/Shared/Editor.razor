@@ -4,6 +4,21 @@
 
 @functions
 {
+
+    public class EditorAction
+    {
+        public Action OnAction { get; set; }
+        public EditorAction(Action onAction)
+        {
+            OnAction = onAction;
+        }
+
+        public string Name { get; set; }
+
+        [JSInvokable]
+        public void Execute() => OnAction();
+    }
+
     private EditorModel _editorModel { get; set; }
     private MonacoEditor _editor;
 
@@ -41,8 +56,60 @@ _editorModel = new EditorModel(options);
     {
         await JSRuntime.InvokeAsync<bool>("Blazaco.Editor.Layout", new[] { _editorModel.Id });
     }
+
+        public async Task ShowErrors(IEnumerable<Diagnostic> errors)
+        {
+            // var code = await Editor.GetValue();
+            // var errors = await Interactive.GetErrors(code);
+            // await Editor.ResetDecorations();
+            foreach (var e in errors)
+            {
+                var sL = e.Location.GetLineSpan().StartLinePosition.Line;
+                var sC = e.Location.GetLineSpan().StartLinePosition.Character;
+                var eL = e.Location.GetLineSpan().EndLinePosition.Line;
+                var eC = e.Location.GetLineSpan().EndLinePosition.Character;
+                // Print($"{sL}, {sC} - {eL}, {eC} - {e.GetMessage()}");
+                await AddInlineDecoration(sL + 1, sC + 1, eL + 1, eC + 1, "redSquiggly");
+            }
+     
+        }
+
+
+
+
+
+    public async Task AddInlineDecoration(int startLine, int startChar, int endLine, int endChar, string cssClass)
+    {
+       
+        await JSRuntime.InvokeAsync<bool>("Blazaco.Editor.AddInlineDecoration",
+             new object[] { _editorModel.Id , startLine, startChar, endLine, endChar, cssClass });
+    }
+    public async Task ResetDecorations()
+    {  
+        await JSRuntime.InvokeAsync<bool>("Blazaco.Editor.ResetDecorations",
+             new [] { _editorModel.Id  });
+    }
+
     public async Task<string> GetSelectedText()
     {
         return await JSRuntime.InvokeAsync<string>("Blazaco.Editor.GetSelectedText", new[] { _editorModel.Id });
+    }
+    
+    public async Task<string> GetCurrentLineText()
+    {
+        return await JSRuntime.InvokeAsync<string>("Blazaco.Editor.GetCurrentLineText", new[] { _editorModel.Id });
+    }
+
+    public async Task RegisterAction(string actionId, string actionLabel, Action callback)
+    {
+        await JSRuntime.InvokeAsync<object>(
+            "Blazaco.Editor.RegisterAction", 
+            new object[] 
+                { 
+                    _editorModel.Id, 
+                    actionId,
+                    actionLabel,
+                    new DotNetObjectRef(new EditorAction(callback)) 
+                });
     }
 }

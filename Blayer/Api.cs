@@ -40,7 +40,7 @@ namespace DotnetBlayer
         public T GetService<T>() => (T)provider.GetService(typeof(T));
 
         public DotnetBlayer.Shared.Editor Editor { get; set; }
-        public DotnetBlayer.Pages.Index Self { get; set; }
+        public DotnetBlayer.Pages.IndexBase Self { get; set; }
         public Action<string> Print { get; set; }
         public  Action StateHasChanged { get; set; }
         public Func<Task<string>> GetEditorText { get; set; }
