@@ -1,7 +1,7 @@
 # DotnetBlayer
 A **live dynamic environment** for dotnet core, inspired by _Smalltalk Pharao_ and embedded scripting languages like _3dsmax MaxScript_.
 
-Client Side online version:
+Client-side browser version:
 https://detachmode.github.io/DotnetBlayer/
 
 ### Vision
