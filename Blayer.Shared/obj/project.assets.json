@@ -1,34 +1,11 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.0": {
-      "Blayer.Contracts/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.0",
-        "compile": {
-          "bin/placeholder/Blayer.Contracts.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Blayer.Contracts.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App",
-          "Microsoft.NETCore.App"
-        ]
-      }
-    }
+    ".NETCoreApp,Version=v3.0": {}
   },
-  "libraries": {
-    "Blayer.Contracts/1.0.0": {
-      "type": "project",
-      "path": "../Blayer.Contracts/Blayer.Contracts.csproj",
-      "msbuildProject": "../Blayer.Contracts/Blayer.Contracts.csproj"
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.0": [
-      "Blayer.Contracts >= 1.0.0"
-    ]
+    ".NETCoreApp,Version=v3.0": []
   },
   "packageFolders": {
     "/Users/dennismuller/.nuget/packages/": {},
@@ -37,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/dennismuller/DotnetBlayer/ExampleApp/ExampleApp.csproj",
-      "projectName": "ExampleApp",
-      "projectPath": "/Users/dennismuller/DotnetBlayer/ExampleApp/ExampleApp.csproj",
+      "projectUniqueName": "/Users/dennismuller/DotnetBlayer/Blayer.Shared/Blayer.Shared.csproj",
+      "projectName": "Blayer.Shared",
+      "projectPath": "/Users/dennismuller/DotnetBlayer/Blayer.Shared/Blayer.Shared.csproj",
       "packagesPath": "/Users/dennismuller/.nuget/packages/",
-      "outputPath": "/Users/dennismuller/DotnetBlayer/ExampleApp/obj/",
+      "outputPath": "/Users/dennismuller/DotnetBlayer/Blayer.Shared/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -63,11 +40,7 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
-          "projectReferences": {
-            "/Users/dennismuller/DotnetBlayer/Blayer.Contracts/Blayer.Contracts.csproj": {
-              "projectPath": "/Users/dennismuller/DotnetBlayer/Blayer.Contracts/Blayer.Contracts.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
@@ -90,6 +63,7 @@
           }
         ],
         "frameworkReferences": [
+          "Microsoft.AspNetCore.App",
           "Microsoft.NETCore.App"
         ]
       }

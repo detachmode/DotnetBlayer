@@ -1,0 +1,17 @@
+/Users/dennismuller/DotnetBlayer/Blayer.Shared/obj/Debug/netcoreapp3.0/Blayer.Shared.csprojAssemblyReference.cache
+/Users/dennismuller/DotnetBlayer/Blayer.Shared/obj/Debug/netcoreapp3.0/Blayer.Shared.csproj.CoreCompileInputs.cache
+/Users/dennismuller/DotnetBlayer/Blayer.Shared/obj/Debug/netcoreapp3.0/Blayer.Shared.RazorComponent.input.cache
+/Users/dennismuller/DotnetBlayer/Blayer.Shared/obj/Debug/netcoreapp3.0/RazorDeclaration/Component1.razor.g.cs
+/Users/dennismuller/DotnetBlayer/Blayer.Shared/bin/Debug/netcoreapp3.0/Blayer.Shared.deps.json
+/Users/dennismuller/DotnetBlayer/Blayer.Shared/bin/Debug/netcoreapp3.0/Blayer.Shared.dll
+/Users/dennismuller/DotnetBlayer/Blayer.Shared/bin/Debug/netcoreapp3.0/Blayer.Shared.pdb
+/Users/dennismuller/DotnetBlayer/Blayer.Shared/obj/Debug/netcoreapp3.0/RazorDeclaration/Blayer.Shared.dll
+/Users/dennismuller/DotnetBlayer/Blayer.Shared/obj/Debug/netcoreapp3.0/Blayer.Shared.TagHelpers.input.cache
+/Users/dennismuller/DotnetBlayer/Blayer.Shared/obj/Debug/netcoreapp3.0/Blayer.Shared.TagHelpers.output.cache
+/Users/dennismuller/DotnetBlayer/Blayer.Shared/obj/Debug/netcoreapp3.0/Blayer.Shared.RazorCoreGenerate.cache
+/Users/dennismuller/DotnetBlayer/Blayer.Shared/obj/Debug/netcoreapp3.0/Razor/Component1.razor.g.cs
+/Users/dennismuller/DotnetBlayer/Blayer.Shared/obj/Debug/netcoreapp3.0/Blayer.Shared.AssemblyInfoInputs.cache
+/Users/dennismuller/DotnetBlayer/Blayer.Shared/obj/Debug/netcoreapp3.0/Blayer.Shared.AssemblyInfo.cs
+/Users/dennismuller/DotnetBlayer/Blayer.Shared/obj/Debug/netcoreapp3.0/Blayer.Shared.RazorTargetAssemblyInfo.cache
+/Users/dennismuller/DotnetBlayer/Blayer.Shared/obj/Debug/netcoreapp3.0/Blayer.Shared.dll
+/Users/dennismuller/DotnetBlayer/Blayer.Shared/obj/Debug/netcoreapp3.0/Blayer.Shared.pdb
