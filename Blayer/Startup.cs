@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using DotnetBlayer.Data;
+using Blayer.Shared;
 
 namespace DotnetBlayer
 {
@@ -21,9 +22,7 @@ namespace DotnetBlayer
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<Api>();
-            services.AddSingleton<Interactive<Api>>();
-            services.AddHttpClient();
+            services.AddBlayerShared();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -400,53 +400,6 @@
       },
       {
         "Kind": "Components.Component",
-        "Name": "Blayer.Shared.Component1",
-        "AssemblyName": "Blayer.Shared",
-        "Documentation": null,
-        "TagOutputHint": null,
-        "TagMatchingRules": [
-          {
-            "TagName": "Component1",
-            "ParentTag": null,
-            "TagStructure": 0,
-            "Attributes": [],
-            "Diagnostics": []
-          }
-        ],
-        "BoundAttributes": [],
-        "AllowedChildTags": [],
-        "Diagnostics": [],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Blayer.Shared.Component1"
-        }
-      },
-      {
-        "Kind": "Components.Component",
-        "Name": "Blayer.Shared.Component1",
-        "AssemblyName": "Blayer.Shared",
-        "Documentation": null,
-        "TagOutputHint": null,
-        "TagMatchingRules": [
-          {
-            "TagName": "Blayer.Shared.Component1",
-            "ParentTag": null,
-            "TagStructure": 0,
-            "Attributes": [],
-            "Diagnostics": []
-          }
-        ],
-        "BoundAttributes": [],
-        "AllowedChildTags": [],
-        "Diagnostics": [],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Blayer.Shared.Component1",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "Kind": "Components.Component",
         "Name": "Blayer.Shared.BlayerBase",
         "AssemblyName": "Blayer.Shared",
         "Documentation": null,
@@ -464,7 +417,7 @@
           {
             "Kind": "Components.Component",
             "Name": "Tool",
-            "TypeName": "IBlayerTool",
+            "TypeName": "DotnetBlayer.IBlayerTool",
             "IsEnum": false,
             "IndexerNamePrefix": null,
             "IndexerTypeName": null,
@@ -501,7 +454,7 @@
           {
             "Kind": "Components.Component",
             "Name": "Tool",
-            "TypeName": "IBlayerTool",
+            "TypeName": "DotnetBlayer.IBlayerTool",
             "IsEnum": false,
             "IndexerNamePrefix": null,
             "IndexerTypeName": null,
@@ -517,6 +470,234 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "Blayer.Shared.BlayerBase",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "Blayer.Shared.Editor.MonacoEditor",
+        "AssemblyName": "Blayer.Shared",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "TagMatchingRules": [
+          {
+            "TagName": "MonacoEditor",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Model",
+            "TypeName": "Blazaco.Editor.EditorModel",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Model"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Width",
+            "TypeName": "System.Int32",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Width"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Height",
+            "TypeName": "System.Int32",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Height"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "FullScreen",
+            "TypeName": "System.Boolean",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "FullScreen"
+            }
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Blayer.Shared.Editor.MonacoEditor"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "Blayer.Shared.Editor.MonacoEditor",
+        "AssemblyName": "Blayer.Shared",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "TagMatchingRules": [
+          {
+            "TagName": "Blayer.Shared.Editor.MonacoEditor",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Model",
+            "TypeName": "Blazaco.Editor.EditorModel",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Model"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Width",
+            "TypeName": "System.Int32",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Width"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Height",
+            "TypeName": "System.Int32",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Height"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "FullScreen",
+            "TypeName": "System.Boolean",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "FullScreen"
+            }
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Blayer.Shared.Editor.MonacoEditor",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "Blayer.Shared.Components.BlayerToolRenderer",
+        "AssemblyName": "Blayer.Shared",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "TagMatchingRules": [
+          {
+            "TagName": "BlayerToolRenderer",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Tool",
+            "TypeName": "DotnetBlayer.IBlayerTool",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Tool"
+            }
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Blayer.Shared.Components.BlayerToolRenderer"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "Blayer.Shared.Components.BlayerToolRenderer",
+        "AssemblyName": "Blayer.Shared",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "TagMatchingRules": [
+          {
+            "TagName": "Blayer.Shared.Components.BlayerToolRenderer",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Tool",
+            "TypeName": "DotnetBlayer.IBlayerTool",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Tool"
+            }
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Blayer.Shared.Components.BlayerToolRenderer",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -564,6 +745,956 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "Blayer.Shared.Components.Component1",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "Blayer.Shared.Components.Editor",
+        "AssemblyName": "Blayer.Shared",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "TagMatchingRules": [
+          {
+            "TagName": "Editor",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Blayer.Shared.Components.Editor"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "Blayer.Shared.Components.Editor",
+        "AssemblyName": "Blayer.Shared",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "TagMatchingRules": [
+          {
+            "TagName": "Blayer.Shared.Components.Editor",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Blayer.Shared.Components.Editor",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "Blayer.Shared.Components.FileBrowser",
+        "AssemblyName": "Blayer.Shared",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "TagMatchingRules": [
+          {
+            "TagName": "FileBrowser",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "FolderPath",
+            "TypeName": "System.String",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "FolderPath"
+            }
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Blayer.Shared.Components.FileBrowser"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "Blayer.Shared.Components.FileBrowser",
+        "AssemblyName": "Blayer.Shared",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "TagMatchingRules": [
+          {
+            "TagName": "Blayer.Shared.Components.FileBrowser",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "FolderPath",
+            "TypeName": "System.String",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "FolderPath"
+            }
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Blayer.Shared.Components.FileBrowser",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "Blayer.Shared.Components.GridArea",
+        "AssemblyName": "Blayer.Shared",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "TagMatchingRules": [
+          {
+            "TagName": "GridArea",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Area",
+            "TypeName": "System.String",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Area"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Scrollable",
+            "TypeName": "System.Boolean",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Scrollable"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "ChildContent",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "ChildContent",
+              "Components.ChildContent": "True"
+            }
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Blayer.Shared.Components.GridArea"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "Blayer.Shared.Components.GridArea",
+        "AssemblyName": "Blayer.Shared",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "TagMatchingRules": [
+          {
+            "TagName": "Blayer.Shared.Components.GridArea",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Area",
+            "TypeName": "System.String",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Area"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Scrollable",
+            "TypeName": "System.Boolean",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Scrollable"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "ChildContent",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "ChildContent",
+              "Components.ChildContent": "True"
+            }
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Blayer.Shared.Components.GridArea",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.ChildContent",
+        "Name": "Blayer.Shared.Components.GridArea.ChildContent",
+        "AssemblyName": "Blayer.Shared",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "TagMatchingRules": [
+          {
+            "TagName": "ChildContent",
+            "ParentTag": "GridArea",
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.None",
+          "Common.TypeName": "Blayer.Shared.Components.GridArea.ChildContent",
+          "Components.IsSpecialKind": "Components.ChildContent"
+        }
+      },
+      {
+        "Kind": "Components.ChildContent",
+        "Name": "Blayer.Shared.Components.GridArea.ChildContent",
+        "AssemblyName": "Blayer.Shared",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "TagMatchingRules": [
+          {
+            "TagName": "ChildContent",
+            "ParentTag": "Blayer.Shared.Components.GridArea",
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.None",
+          "Common.TypeName": "Blayer.Shared.Components.GridArea.ChildContent",
+          "Components.IsSpecialKind": "Components.ChildContent",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "Blayer.Shared.Components.GridLayout",
+        "AssemblyName": "Blayer.Shared",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "TagMatchingRules": [
+          {
+            "TagName": "GridLayout",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Areas",
+            "TypeName": "System.String",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Areas"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Columns",
+            "TypeName": "System.String",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Columns"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Rows",
+            "TypeName": "System.String",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Rows"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Debug",
+            "TypeName": "System.Boolean",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Debug"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "ChildContent",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "ChildContent",
+              "Components.ChildContent": "True"
+            }
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Blayer.Shared.Components.GridLayout"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "Blayer.Shared.Components.GridLayout",
+        "AssemblyName": "Blayer.Shared",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "TagMatchingRules": [
+          {
+            "TagName": "Blayer.Shared.Components.GridLayout",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Areas",
+            "TypeName": "System.String",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Areas"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Columns",
+            "TypeName": "System.String",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Columns"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Rows",
+            "TypeName": "System.String",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Rows"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Debug",
+            "TypeName": "System.Boolean",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Debug"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "ChildContent",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "ChildContent",
+              "Components.ChildContent": "True"
+            }
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Blayer.Shared.Components.GridLayout",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.ChildContent",
+        "Name": "Blayer.Shared.Components.GridLayout.ChildContent",
+        "AssemblyName": "Blayer.Shared",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "TagMatchingRules": [
+          {
+            "TagName": "ChildContent",
+            "ParentTag": "GridLayout",
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.None",
+          "Common.TypeName": "Blayer.Shared.Components.GridLayout.ChildContent",
+          "Components.IsSpecialKind": "Components.ChildContent"
+        }
+      },
+      {
+        "Kind": "Components.ChildContent",
+        "Name": "Blayer.Shared.Components.GridLayout.ChildContent",
+        "AssemblyName": "Blayer.Shared",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "TagMatchingRules": [
+          {
+            "TagName": "ChildContent",
+            "ParentTag": "Blayer.Shared.Components.GridLayout",
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.None",
+          "Common.TypeName": "Blayer.Shared.Components.GridLayout.ChildContent",
+          "Components.IsSpecialKind": "Components.ChildContent",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "Blayer.Shared.Components.MainLayout",
+        "AssemblyName": "Blayer.Shared",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "TagMatchingRules": [
+          {
+            "TagName": "MainLayout",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Blayer.Shared.Components.MainLayout"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "Blayer.Shared.Components.MainLayout",
+        "AssemblyName": "Blayer.Shared",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "TagMatchingRules": [
+          {
+            "TagName": "Blayer.Shared.Components.MainLayout",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Blayer.Shared.Components.MainLayout",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "Blayer.Shared.Components.ScrollViewer",
+        "AssemblyName": "Blayer.Shared",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "TagMatchingRules": [
+          {
+            "TagName": "ScrollViewer",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "ChildContent",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "ChildContent",
+              "Components.ChildContent": "True"
+            }
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Blayer.Shared.Components.ScrollViewer"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "Blayer.Shared.Components.ScrollViewer",
+        "AssemblyName": "Blayer.Shared",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "TagMatchingRules": [
+          {
+            "TagName": "Blayer.Shared.Components.ScrollViewer",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "ChildContent",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "ChildContent",
+              "Components.ChildContent": "True"
+            }
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Blayer.Shared.Components.ScrollViewer",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.ChildContent",
+        "Name": "Blayer.Shared.Components.ScrollViewer.ChildContent",
+        "AssemblyName": "Blayer.Shared",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "TagMatchingRules": [
+          {
+            "TagName": "ChildContent",
+            "ParentTag": "ScrollViewer",
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.None",
+          "Common.TypeName": "Blayer.Shared.Components.ScrollViewer.ChildContent",
+          "Components.IsSpecialKind": "Components.ChildContent"
+        }
+      },
+      {
+        "Kind": "Components.ChildContent",
+        "Name": "Blayer.Shared.Components.ScrollViewer.ChildContent",
+        "AssemblyName": "Blayer.Shared",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "TagMatchingRules": [
+          {
+            "TagName": "ChildContent",
+            "ParentTag": "Blayer.Shared.Components.ScrollViewer",
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.None",
+          "Common.TypeName": "Blayer.Shared.Components.ScrollViewer.ChildContent",
+          "Components.IsSpecialKind": "Components.ChildContent",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "Blayer.Shared.Pages.DllTryout",
+        "AssemblyName": "Blayer.Shared",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "TagMatchingRules": [
+          {
+            "TagName": "DllTryout",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Blayer.Shared.Pages.DllTryout"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "Blayer.Shared.Pages.DllTryout",
+        "AssemblyName": "Blayer.Shared",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "TagMatchingRules": [
+          {
+            "TagName": "Blayer.Shared.Pages.DllTryout",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Blayer.Shared.Pages.DllTryout",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "DotnetBlayer.Pages.IndexBase",
+        "AssemblyName": "Blayer.Shared",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "TagMatchingRules": [
+          {
+            "TagName": "IndexBase",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "DotnetBlayer.Pages.IndexBase"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "DotnetBlayer.Pages.IndexBase",
+        "AssemblyName": "Blayer.Shared",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "TagMatchingRules": [
+          {
+            "TagName": "DotnetBlayer.Pages.IndexBase",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "DotnetBlayer.Pages.IndexBase",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "Blazaco.Editor.MonacoEditor",
+        "AssemblyName": "Blazaco",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "TagMatchingRules": [
+          {
+            "TagName": "MonacoEditor",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Model",
+            "TypeName": "Blazaco.Editor.EditorModel",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Model"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Width",
+            "TypeName": "System.Int32",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Width"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Height",
+            "TypeName": "System.Int32",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Height"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "FullScreen",
+            "TypeName": "System.Boolean",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "FullScreen"
+            }
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Blazaco.Editor.MonacoEditor"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "Blazaco.Editor.MonacoEditor",
+        "AssemblyName": "Blazaco",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "TagMatchingRules": [
+          {
+            "TagName": "Blazaco.Editor.MonacoEditor",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Model",
+            "TypeName": "Blazaco.Editor.EditorModel",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Model"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Width",
+            "TypeName": "System.Int32",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Width"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Height",
+            "TypeName": "System.Int32",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Height"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "FullScreen",
+            "TypeName": "System.Boolean",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "FullScreen"
+            }
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Blazaco.Editor.MonacoEditor",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -10115,6 +11246,66 @@
   },
   "RootNamespace": "Blayer.Shared",
   "Documents": [
+    {
+      "FilePath": "Components/MainLayout.razor",
+      "TargetPath": "Components/MainLayout.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "Components/GridArea.razor",
+      "TargetPath": "Components/GridArea.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "Components/BlayerToolRenderer.razor",
+      "TargetPath": "Components/BlayerToolRenderer.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "Components/Editor.razor",
+      "TargetPath": "Components/Editor.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "Components/ScrollViewer.razor",
+      "TargetPath": "Components/ScrollViewer.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "/Users/dennismuller/.nuget/packages/blazaco/1.2.0/contentFiles/any/netstandard2.0/Editor/MonacoEditor.razor",
+      "TargetPath": "Editor/MonacoEditor.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "Pages/Index.razor",
+      "TargetPath": "Pages/Index.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "Pages/_Host.cshtml",
+      "TargetPath": "Pages/_Host.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Components/GridLayout.razor",
+      "TargetPath": "Components/GridLayout.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "Components/FileBrowser.razor",
+      "TargetPath": "Components/FileBrowser.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "_Imports.razor",
+      "TargetPath": "_Imports.razor",
+      "FileKind": "componentImport"
+    },
+    {
+      "FilePath": "Pages/DllTryout.razor",
+      "TargetPath": "Pages/DllTryout.razor",
+      "FileKind": "component"
+    },
     {
       "FilePath": "Components/Component1.razor",
       "TargetPath": "Components/Component1.razor",

@@ -107,6 +107,10 @@
       "frameworks": {
         "netcoreapp3.0": {
           "dependencies": {
+            "Blazaco": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
             "Microsoft.CodeAnalysis.CSharp.Scripting": {
               "target": "Package",
               "version": "[3.1.0, )"

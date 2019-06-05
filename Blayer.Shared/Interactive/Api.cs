@@ -1,6 +1,8 @@
 using System;
 using System.Threading.Tasks;
+using Blayer.Shared.Components;
 using BlayerUI.Shared;
+using DotnetBlayer.Pages;
 using Microsoft.AspNetCore.Components.RenderTree;
 
 namespace DotnetBlayer
@@ -38,9 +40,8 @@ namespace DotnetBlayer
 
         public T GetService<T>() => (T)provider.GetService(typeof(T));
 
-    // TODO fix this.
-        // public DotnetBlayer.Shared.Editor Editor { get; set; }
-        // public DotnetBlayer.Pages.IndexBase Self { get; set; }
+        public Editor Editor { get; set; }
+        public IndexBase Self { get; set; }
         public Action<string> Print { get; set; }
         public  Action StateHasChanged { get; set; }
         public Func<Task<string>> GetEditorText { get; set; }
