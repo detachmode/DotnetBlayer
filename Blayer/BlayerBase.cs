@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Components.RenderTree;
 
 namespace DotnetBlayer
 {
+
     public class BlayerBase : ComponentBase
     {
         [Parameter]
