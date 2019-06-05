@@ -1,4 +1,13 @@
 using Blayer.Shared.Interactive;
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Blayer.Shared.Components;
+using Microsoft.AspNetCore.Components;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.Scripting;
+using Microsoft.JSInterop;
 using DotnetBlayer;
 
 namespace Blayer.Shared.Pages
@@ -46,7 +55,7 @@ namespace Blayer.Shared.Pages
         };
 
         public IBlayerTool Tool { get; set; }
-        public Editor Editor { get; set; }
+        public Blayer.Shared.Components.Editor Editor { get; set; }
         public string Code { get; set; }
         public LayoutTemplate CurrentLayout { get; set; }
         public List<CoutRes> Results { get; set; }

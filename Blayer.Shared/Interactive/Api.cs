@@ -1,4 +1,9 @@
 using Blayer.Shared.Pages;
+using System;
+using System.Threading.Tasks;
+using Blayer.Shared.Components;
+using BlayerUI.Shared;
+using Microsoft.AspNetCore.Components.RenderTree;
 using DotnetBlayer;
 
 namespace Blayer.Shared.Interactive
@@ -37,7 +42,7 @@ namespace Blayer.Shared.Interactive
 
         public T GetService<T>() => (T)provider.GetService(typeof(T));
 
-        public Editor Editor { get; set; }
+        public Blayer.Shared.Components.Editor Editor { get; set; }
         public IndexBase Self { get; set; }
         public Action<string> Print { get; set; }
         public  Action StateHasChanged { get; set; }

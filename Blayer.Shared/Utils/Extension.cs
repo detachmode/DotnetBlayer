@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 namespace Blayer.Shared.Utils
 {
     public static class Extension

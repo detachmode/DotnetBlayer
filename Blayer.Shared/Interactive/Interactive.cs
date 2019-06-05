@@ -1,4 +1,14 @@
 using Blayer.Shared.Components;
+using System;
+using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp.Scripting;
+using Microsoft.CodeAnalysis.Scripting;
+using Microsoft.JSInterop;
+using Blayer.Shared.Utils;
 
 namespace Blayer.Shared.Interactive
 {
