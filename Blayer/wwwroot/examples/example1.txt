@@ -1,1 +1,0 @@
-await Editor.RegisterAction("dotnetblayer.editor.evalSelection", "evalSel",() => Self.EvalSel());
