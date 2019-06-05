@@ -53,14 +53,6 @@ namespace DotnetBlayer
 
         }
 
-
-
-
-        
-
-        
-
-
         public async Task<string> Eval(string code)
         {
             try
@@ -84,7 +76,7 @@ namespace DotnetBlayer
 
 
             var options = ScriptOptions.Default
-                .WithReferences(typeof(Program).Assembly)
+                .WithReferences(typeof(BlayerBase).Assembly)
                 .WithSourceResolver(new SourceFileResolver(
                     paths, Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)))
                 .WithImports(
