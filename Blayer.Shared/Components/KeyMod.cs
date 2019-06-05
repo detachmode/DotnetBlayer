@@ -1,4 +1,4 @@
-namespace DotnetBlayer
+namespace Blayer.Shared.Components
 {
     public static class KeyMod
     {

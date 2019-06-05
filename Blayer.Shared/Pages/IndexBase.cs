@@ -1,14 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Blayer.Shared.Components;
-using Microsoft.AspNetCore.Components;
-using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.Scripting;
-using Microsoft.JSInterop;
+using Blayer.Shared.Interactive;
+using DotnetBlayer;
 
-namespace DotnetBlayer.Pages
+namespace Blayer.Shared.Pages
 {
 
     public class IndexBase : ComponentBase

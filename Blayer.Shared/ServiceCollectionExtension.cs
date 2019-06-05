@@ -1,3 +1,4 @@
+using Blayer.Shared.Interactive;
 using DotnetBlayer;
 using Microsoft.Extensions.DependencyInjection;
 

@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
-
-namespace DotnetBlayer
+namespace Blayer.Shared.Utils
 {
     public static class Extension
     {

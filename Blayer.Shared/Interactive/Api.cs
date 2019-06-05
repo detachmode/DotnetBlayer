@@ -1,11 +1,7 @@
-using System;
-using System.Threading.Tasks;
-using Blayer.Shared.Components;
-using BlayerUI.Shared;
-using DotnetBlayer.Pages;
-using Microsoft.AspNetCore.Components.RenderTree;
+using Blayer.Shared.Pages;
+using DotnetBlayer;
 
-namespace DotnetBlayer
+namespace Blayer.Shared.Interactive
 {
     public class InteractiveBlayerTool : IBlayerTool
     {
@@ -26,6 +22,7 @@ namespace DotnetBlayer
             onBuilder(builder);
         }
 
+     
     }
 
     public class Api {

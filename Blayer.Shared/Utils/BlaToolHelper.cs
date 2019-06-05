@@ -1,9 +1,6 @@
-using System;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.Loader;
+using DotnetBlayer;
 
-namespace DotnetBlayer
+namespace Blayer.Shared.Utils
 {
     public class SimpleUnloadableAssemblyLoadContext : AssemblyLoadContext
     {

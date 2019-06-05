@@ -1,14 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp.Scripting;
-using Microsoft.CodeAnalysis.Scripting;
-using Microsoft.JSInterop;
+using Blayer.Shared.Components;
 
-namespace DotnetBlayer
+namespace Blayer.Shared.Interactive
 {
     public class Interactive<T>
     {

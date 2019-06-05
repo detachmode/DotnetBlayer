@@ -1,10 +1,6 @@
-using System;
-using BlayerUI.Shared;
 using DotnetBlayer;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.RenderTree;
 
-namespace Blayer.Shared
+namespace Blayer.Shared.Components
 {
     public class BlayerBase : ComponentBase
     {
