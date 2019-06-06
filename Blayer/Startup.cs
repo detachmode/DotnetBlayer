@@ -8,8 +8,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using DotnetBlayer.Data;
 using Blayer.Shared;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
 
 namespace DotnetBlayer
 {
@@ -41,6 +42,12 @@ namespace DotnetBlayer
             app.UseHttpsRedirection();
 
             app.UseStaticFiles();
+
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "../Blayer.Shared/content")),
+                RequestPath = new PathString("")
+            });
 
             app.UseRouting();
 
