@@ -1,8 +1,7 @@
 using System;
 using System.Threading.Tasks;
-using BlayerUI.Shared;
+using Blayer.Contracts;
 using Microsoft.AspNetCore.Components.RenderTree;
-using DotnetBlayer;
 
 namespace Blayer.ClientSide.Interactive
 {

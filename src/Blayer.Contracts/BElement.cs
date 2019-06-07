@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace BlayerUI.Shared
+namespace Blayer.Contracts
 {
     public class BElement
     {

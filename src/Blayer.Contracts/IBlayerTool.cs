@@ -1,8 +1,7 @@
-using BlayerUI.Shared;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.RenderTree;
 
-namespace DotnetBlayer
+namespace Blayer.Contracts
 {       
     public interface IBlayerTool
     {

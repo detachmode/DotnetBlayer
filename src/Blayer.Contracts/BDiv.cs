@@ -1,6 +1,6 @@
 using System.Linq;
 
-namespace BlayerUI.Shared
+namespace Blayer.Contracts
 {
     public class BDiv : BElement
     {

@@ -19,7 +19,7 @@
     private RenderFragment CreateComponent(IBlayerTool tool) => builder =>
     {
         builder.OpenComponent<BlayerBase>(0);
-        builder.AddAttribute(1, "Tool", Microsoft.AspNetCore.Components.RuntimeHelpers.TypeCheck<DotnetBlayer.IBlayerTool>(tool));
+        builder.AddAttribute(1, "Tool", Microsoft.AspNetCore.Components.RuntimeHelpers.TypeCheck<IBlayerTool>(tool));
         builder.CloseComponent();
     };    
 

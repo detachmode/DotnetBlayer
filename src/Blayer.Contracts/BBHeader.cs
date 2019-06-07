@@ -1,4 +1,4 @@
-namespace BlayerUI.Shared
+namespace Blayer.Contracts
 {
     public class BBHeader : BElement
     {

@@ -1,6 +1,6 @@
-using DotnetBlayer;
 using System;
 using Microsoft.AspNetCore.Components;
+using Blayer.Contracts;
 using Microsoft.AspNetCore.Components.RenderTree;
 
 namespace Blayer.ClientSide.Components
