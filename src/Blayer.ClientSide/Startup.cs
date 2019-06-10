@@ -7,6 +7,7 @@ namespace Blayer.ClientSide
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddBlayerShared();
         }
 
         public void Configure(IComponentsApplicationBuilder app)

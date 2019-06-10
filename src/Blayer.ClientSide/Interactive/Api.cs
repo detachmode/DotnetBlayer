@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using Blayer.ClientSide.Pages;
 using Blayer.Contracts;
 using Microsoft.AspNetCore.Components.RenderTree;
 
@@ -35,12 +36,12 @@ namespace Blayer.ClientSide.Interactive
             this.provider = provider;
         }
 
-        public Interactive<Api> Interactive => GetService<Interactive<Api>>();
+        public Blayer.ClientSide.Interactive.Interactive<Api> Interactive => GetService<Blayer.ClientSide.Interactive.Interactive<Api>>();
 
         public T GetService<T>() => (T)provider.GetService(typeof(T));
 
-        // public Blayer.Shared.Components.Editor Editor { get; set; }
-        // public IndexBase Self { get; set; }
+        public Blayer.ClientSide.Components.Editor Editor { get; set; }
+        public IndexBase Self { get; set; }
         public Action<string> Print { get; set; }
         public  Action StateHasChanged { get; set; }
         public Func<Task<string>> GetEditorText { get; set; }
