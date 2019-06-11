@@ -35,8 +35,20 @@ class Build : NukeBuild
     Target Clean => _ => _
         .Executes(() =>
         {
+
+            try
+            {
+                ProcessTasks.StartProcess("git", " worktree remove gh-pages").WaitForExit();
+            }
+            catch (System.Exception)
+            {
+
+            }
+
             SourceDirectory.GlobDirectories("**/*/bin", "**/*/obj").ForEach(DeleteDirectory);
+            DeleteDirectory("_site");
             EnsureCleanDirectory(ArtifactsDirectory);
+
 
         });
 
@@ -77,24 +89,44 @@ class Build : NukeBuild
         .DependsOn(Publish)
         .Executes(() =>
         {
-            var cmds = new[] {
-                ("git", "--version"),
-                ("git", "worktree add _site gh-pages"),
-                ("cd", "_site"),
-                ("echo", "hello >> hi.txt"),
-                ("git", "add -A"),
-                ("git", "status"),
-                // "git config user.email you@you.com",
-                // "git config user.name \"your name\"",
-               ("git", "commit -a -m \"Commit from Azure DevOps\""),
-            };
 
-            foreach (var cmd in cmds)
+
+            // var cmds = new[] {
+            //     ("git", "--version", "."),
+            //     ("git", "worktree add _site gh-pages", "."),
+            //     ("echo", "hello >> hi.txt", "_site"),
+            //     ("git", "add -A", "_site"),
+            //     ("git", "status", "_site"),
+
+            //     // "git config user.email you@you.com",
+            //     // "git config user.email you@you.com",
+            //     // "git config user.name \"your name\"",
+            //     ("git", "commit -a -m \"Commit from Azure DevOps\"", "_site"),
+            //     ("git", "push", "_site"),
+            // };
+
+            try
             {
-                ProcessTasks.StartProcess(cmd.Item1, cmd.Item2);
+                ProcessTasks.StartProcess("git", "worktree prune").WaitForExit();
+                ProcessTasks.StartProcess("git", "worktree add _site gh-pages").WaitForExit();
+                System.Console.WriteLine("Added Working Tree");
+                EnsureCleanDirectory(RootDirectory / "_site");
+                CopyDirectoryRecursively(ArtifactsDirectory / "Blayer.ClientSide" / "dist", RootDirectory / "_site" / "foo");
+                System.Console.WriteLine("Copied Recusively");
+                ProcessTasks.StartProcess("git", "add -A", "_site").WaitForExit();
+                ProcessTasks.StartProcess("git", "status", "_site").WaitForExit();
+                ProcessTasks.StartProcess("git", " commit -m \"commit from nuke\"", "_site").WaitForExit();
+                ProcessTasks.StartProcess("git", "push", "_site").WaitForExit();
             }
-
-
+            catch (Exception ex)
+            {
+                Logger.Log(LogLevel.Error, ex.ToString());
+                throw;
+            }
+            finally
+            {
+                ProcessTasks.StartProcess("git", "worktree remove gh-pages").WaitForExit();
+            }
 
         });
 
