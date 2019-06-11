@@ -76,22 +76,20 @@ class Build : NukeBuild
         .Executes(() =>
         {
             var cmds = new[] {
-                "git --version",
-                "git checkout master",
-                "git add -A",
-                "git status",
-                "echo \"setup author info\"",
+                "--version",
+                "checkout master",
+                "add -A",
+                "status",
                 // "git config user.email you@you.com",
                 // "git config user.name \"your name\"",
-                "echo \"git commit with message\"",
-                "git commit -a -m \"Commit from Azure DevOps\"",
-                "echo \"git push\"",
-                "git subtree push --prefix gh-pages/Blayer.ClientSide/dist origin gh-pages",
+                "commit -a -m \"Commit from Azure DevOps\"",
+                "subtree push --prefix gh-pages/Blayer.ClientSide/dist origin gh-pages",
             };
 
             foreach (var cmd in cmds)
             {
-                ProcessTasks.StartProcess(cmd);
+
+                ProcessTasks.StartProcess(git, cmd);
             }
 
 
