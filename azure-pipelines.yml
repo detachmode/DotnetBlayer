@@ -20,23 +20,18 @@ steps:
 - task: PowerShell@2
   inputs:
     targetType: 'inline'
-    script: 'mkdir repo
-      
-      cd repo
-      
-      git clone https://github.com/detachmode/DotnetBlayer.git
-      
-      cd DotnetBlayer
-      
-      git checkout -b gh-pages
-      
-      echo hi >> test.txt
-      
-      git add .
-      
-      git commit -m "test.txt"
-      
-      git push'
+    script: 'mkdir repo    
+            cd repo
+            git config --global user.email "azuredevops@azure.com"
+            git config --global user.name "DevOps"
+            git clone https://github.com/detachmode/DotnetBlayer.git
+            cd DotnetBlayer
+            git checkout -b gh-pages
+            git pull
+            echo hi >> test.txt
+            git add .
+            git commit -m "test.txt"
+            git push'
 
 - task: DotNetCoreInstaller@0
   displayName: 'Installing .NET Core SDK...'
