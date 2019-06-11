@@ -17,18 +17,26 @@ pool:
 
 steps:
 
-- task: CmdLine@2
+- task: PowerShell@2
   inputs:
+    targetType: 'inline'
     script: 'mkdir repo
+      
       cd repo
+      
       git clone https://github.com/detachmode/DotnetBlayer.git
+      
       cd DotnetBlayer
+      
       git checkout -b gh-pages
+      
       echo hi >> test.txt
+      
       git add .
+      
       git commit -m "test.txt"
-      git push   
-      '
+      
+      git push'
 
 - task: DotNetCoreInstaller@0
   displayName: 'Installing .NET Core SDK...'
