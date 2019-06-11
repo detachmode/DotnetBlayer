@@ -32,7 +32,9 @@ steps:
 
             cd DotnetBlayer
 
-            git checkout -b origin/gh-pages
+            git fetch
+
+            git checkout -t origin/gh-pages
             
             git branch --set-upstream-to=origin/gh-pages gh-pages
 
