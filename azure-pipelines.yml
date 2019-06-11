@@ -16,6 +16,9 @@ pool:
 
 
 steps:
+- checkout: self
+  persistCredentials: true
+  clean: true
 
 - task: PowerShell@2
   inputs:
