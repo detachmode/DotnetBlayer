@@ -3,6 +3,7 @@ using System.Linq;
 using Nuke.Common;
 using Nuke.Common.Execution;
 using Nuke.Common.Git;
+using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
 using Nuke.Common.Tooling;
 using Nuke.Common.Tools.DotNet;
@@ -109,10 +110,13 @@ class Build : NukeBuild
             {
                 ProcessTasks.StartProcess("git", "worktree prune").WaitForExit();
                 ProcessTasks.StartProcess("git", "worktree add _site gh-pages").WaitForExit();
-                System.Console.WriteLine("Added Working Tree");
-                EnsureCleanDirectory(RootDirectory / "_site");
-                CopyDirectoryRecursively(ArtifactsDirectory / "Blayer.ClientSide" / "dist", RootDirectory / "_site" / "foo");
+                // System.Console.WriteLine("Added Working Tree");
+                CopyDirectoryRecursively(
+                    ArtifactsDirectory / "Blayer.ClientSide" / "dist",
+                    RootDirectory / "_site",
+                    DirectoryExistsPolicy.Merge, FileExistsPolicy.Overwrite);
                 System.Console.WriteLine("Copied Recusively");
+
                 ProcessTasks.StartProcess("git", "add -A", "_site").WaitForExit();
                 ProcessTasks.StartProcess("git", "status", "_site").WaitForExit();
                 ProcessTasks.StartProcess("git", " commit -m \"commit from nuke\"", "_site").WaitForExit();
@@ -125,7 +129,7 @@ class Build : NukeBuild
             }
             finally
             {
-                ProcessTasks.StartProcess("git", "worktree remove gh-pages").WaitForExit();
+                //   ProcessTasks.StartProcess("git", "worktree remove gh-pages").WaitForExit();
             }
 
         });
