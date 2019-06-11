@@ -22,11 +22,12 @@ class Build : NukeBuild
     ///   - Microsoft VisualStudio     https://nuke.build/visualstudio
     ///   - Microsoft VSCode           https://nuke.build/vscode
 
-    public static int Main () => Execute<Build>(x => x.Publish);
+    public static int Main() => Execute<Build>(x => x.Publish);
 
-   AbsolutePath SourceDirectory => RootDirectory / "src";
-   AbsolutePath TestDirectory => RootDirectory / "src" / "test";
-   AbsolutePath ProjectClientSide => RootDirectory / "src" / "Blayer.ClientSide";
+    AbsolutePath SourceDirectory => RootDirectory / "src";
+    AbsolutePath ArtifactsDirectory => RootDirectory / "gh-pages";
+    AbsolutePath TestDirectory => RootDirectory / "src" / "test";
+    AbsolutePath ProjectClientSide => RootDirectory / "src" / "Blayer.ClientSide";
 
     [Parameter("Configuration to build - Default is 'Debug' (local) or 'Release' (server)")]
     readonly Configuration Configuration = IsLocalBuild ? Configuration.Debug : Configuration.Release;
@@ -35,7 +36,10 @@ class Build : NukeBuild
         .Executes(() =>
         {
             SourceDirectory.GlobDirectories("**/*/bin", "**/*/obj").ForEach(DeleteDirectory);
+            EnsureCleanDirectory(ArtifactsDirectory);
+
         });
+
 
 
     Target Compile => _ => _
@@ -44,7 +48,7 @@ class Build : NukeBuild
         {
             DotNetBuild(s => s
                 .SetProjectFile(ProjectClientSide));
-         
+
         });
 
     Target Test => _ => _
@@ -62,10 +66,10 @@ class Build : NukeBuild
         .DependsOn(Test)
         .Executes(() =>
         {
-            // DotNetPublish(s => s
-            // .EnableNoBuild()
-            // .SetOutput(ArtifactsDirectory)
-            // .SetProject(Solution));
+            DotNetPublish(s => s
+            .EnableNoBuild()
+            .SetOutput(ArtifactsDirectory)
+            .SetProject(ProjectClientSide));
         });
 
 }
