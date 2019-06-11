@@ -71,25 +71,27 @@ class Build : NukeBuild
             .SetOutput(ArtifactsDirectory)
             .SetProject(ProjectClientSide));
         });
+
+
     Target PublishSubtree => _ => _
         .DependsOn(Publish)
         .Executes(() =>
         {
             var cmds = new[] {
-                "--version",
-                "checkout master",
-                "add -A",
-                "status",
+                ("git", "--version"),
+                ("git", "worktree add _site gh-pages"),
+                ("cd", "_site"),
+                ("echo", "hello >> hi.txt"),
+                ("git", "add -A"),
+                ("git", "status"),
                 // "git config user.email you@you.com",
                 // "git config user.name \"your name\"",
-                "commit -a -m \"Commit from Azure DevOps\"",
-                "subtree push --prefix gh-pages/Blayer.ClientSide/dist origin gh-pages",
+               ("git", "commit -a -m \"Commit from Azure DevOps\""),
             };
 
             foreach (var cmd in cmds)
             {
-
-                ProcessTasks.StartProcess(git, cmd);
+                ProcessTasks.StartProcess(cmd.Item1, cmd.Item2);
             }
 
 
