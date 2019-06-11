@@ -32,15 +32,3 @@ steps:
   inputs:
     filePath: './build.ps1'
 
-- powershell: |
-   git --version
-   git checkout master
-   git add -A
-   git status
-   Write-Host "setup author info"
-   git config user.email you@you.com
-   git config user.name "your name"
-   Write-Host "git commit with message"
-   git commit -a -m "Commit from Azure DevOps"
-   Write-Host "git push"
-   git subtree push --prefix gh-pages\Blayer.ClientSide\dist origin gh-pages
