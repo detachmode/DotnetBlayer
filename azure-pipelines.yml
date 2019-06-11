@@ -20,20 +20,7 @@ steps:
   persistCredentials: true
   clean: true
 
-- powershell: |
-   git --version
-   git checkout master
-   New-Item -Path "$(System.DefaultWorkingDirectory)" -Name "testfile1.txt" -ItemType "file" -Value "This is a text string."
-   Write-Host "new file created, now adding file to git"
-   git add -A
-   git status
-   Write-Host "setup author info"
-   git config user.email you@you.com
-   git config user.name "your name"
-   Write-Host "git commit with message"
-   git commit -a -m "Test Commit from Azure DevOps"
-   Write-Host "git push"
-   git push
+
 
 - task: DotNetCoreInstaller@0
   displayName: 'Installing .NET Core SDK...'
@@ -44,3 +31,16 @@ steps:
 - task: PowerShell@2
   inputs:
     filePath: './build.ps1'
+
+- powershell: |
+   git --version
+   git checkout master
+   git add -A
+   git status
+   Write-Host "setup author info"
+   git config user.email you@you.com
+   git config user.name "your name"
+   Write-Host "git commit with message"
+   git commit -a -m "Commit from Azure DevOps"
+   Write-Host "git push"
+   git push   
