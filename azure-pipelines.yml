@@ -43,4 +43,4 @@ steps:
    Write-Host "git commit with message"
    git commit -a -m "Commit from Azure DevOps"
    Write-Host "git push"
-   git push   
+   git subtree push --prefix gh-pages\Blayer.ClientSide\dist origin gh-pages
