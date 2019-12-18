@@ -1,0 +1,24 @@
+<div>
+    <input @onchange="LoadFolder" bind="@FolderPath"/>
+
+</div>
+@code
+{
+    [Parameter]public string FolderPath { get; set; }
+
+
+    string[] Files;
+
+    void LoadFolder()
+    {
+        
+    
+    }
+    
+
+    protected override void OnParametersSet()
+    {
+       
+          
+    }
+}

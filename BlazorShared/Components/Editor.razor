@@ -1,0 +1,121 @@
+﻿@using bla.Monaco
+@using Blazaco.Editor
+@using Blazaco.Editor.Options
+@using Microsoft.CodeAnalysis
+@inject IJSRuntime JsRuntime
+
+<MonacoEditor @ref="_editor" Model="@_editorModel" FullScreen="@true" />
+
+@code
+{
+
+  public class EditorAction
+  {
+    public Action OnAction { get; set; }
+    public EditorAction(Action onAction)
+    {
+      OnAction = onAction;
+    }
+
+    public string Name { get; set; }
+
+    [JSInvokable]
+    public void Execute() => OnAction();
+  }
+
+  private EditorModel _editorModel { get; set; }
+  private MonacoEditor _editor;
+
+  /// <inheritdoc />
+  protected override Task OnInitializedAsync()
+  {
+    var options = new EditorOptions()
+    {
+      Value = "// Your Code Here!",
+      Language = "csharp",
+      Theme = "vs-dark"
+    };
+
+    _editorModel = new EditorModel(options);
+    return base.OnInitializedAsync();
+  }
+
+
+
+  public async Task ChangeTheme(ChangeEventArgs e)
+  {
+    Console.WriteLine($"setting theme to: {e.Value.ToString()}");
+    await _editor.SetTheme(e.Value.ToString());
+  }
+
+  public async Task SetValue(string value)
+  {
+    await _editor.SetValue(value);
+  }
+
+  public async Task<string> GetValue()
+  {
+    var val = await _editor.GetValue();
+    return val;
+  }
+  public async Task Layout()
+  {
+    await JsRuntime.InvokeAsync<bool>("Blazaco.Editor.Layout", new[] { _editorModel.Id });
+  }
+
+  public async Task ShowErrors(IEnumerable<Diagnostic> errors)
+  {
+    // var code = await Editor.GetValue();
+    // var errors = await Interactive.GetErrors(code);
+    // await Editor.ResetDecorations();
+    foreach (var e in errors)
+    {
+      var sL = e.Location.GetLineSpan().StartLinePosition.Line;
+      var sC = e.Location.GetLineSpan().StartLinePosition.Character;
+      var eL = e.Location.GetLineSpan().EndLinePosition.Line;
+      var eC = e.Location.GetLineSpan().EndLinePosition.Character;
+      // Print($"{sL}, {sC} - {eL}, {eC} - {e.GetMessage()}");
+      await AddInlineDecoration(sL + 1, sC + 1, eL + 1, eC + 1, "redSquiggly");
+    }
+
+  }
+
+
+
+
+
+  public async Task AddInlineDecoration(int startLine, int startChar, int endLine, int endChar, string cssClass)
+  {
+
+    await JsRuntime.InvokeAsync<bool>("Blazaco.Editor.AddInlineDecoration",
+         new object[] { _editorModel.Id, startLine, startChar, endLine, endChar, cssClass });
+  }
+  public async Task ResetDecorations()
+  {
+    await JsRuntime.InvokeAsync<bool>("Blazaco.Editor.ResetDecorations",
+         new[] { _editorModel.Id });
+  }
+
+  public async Task<string> GetSelectedText()
+  {
+    return await JsRuntime.InvokeAsync<string>("Blazaco.Editor.GetSelectedText", new[] { _editorModel.Id });
+  }
+
+  public async Task<string> GetCurrentLineText()
+  {
+    return await JsRuntime.InvokeAsync<string>("Blazaco.Editor.GetCurrentLineText", new[] { _editorModel.Id });
+  }
+
+  public async Task RegisterAction(string actionId, string actionLabel, Action callback)
+  {
+    await JsRuntime.InvokeAsync<object>(
+        "Blazaco.Editor.RegisterAction",
+        new object[]
+            {
+                    _editorModel.Id,
+                    actionId,
+                    actionLabel,
+                    DotNetObjectReference.Create(new EditorAction(callback))
+              });
+  }
+}

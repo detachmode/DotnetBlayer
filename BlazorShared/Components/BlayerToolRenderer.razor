@@ -1,0 +1,29 @@
+﻿@using System.Diagnostics
+@using Blayer.Contracts
+@using Blayer.Shared.Components
+@using Microsoft.AspNetCore.Components.CompilerServices
+
+@CustomRender
+
+
+@code {
+    private RenderFragment CustomRender { get; set; }
+
+    [Parameter] public IBlayerTool Tool { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        if(Tool != null)
+        {
+            CustomRender = CreateComponent(Tool);
+        }
+    }
+    
+    private RenderFragment CreateComponent(IBlayerTool tool) => b =>
+    {
+        b.OpenComponent<BlayerBase>(0);
+        b.AddAttribute(1, "Tool", RuntimeHelpers.TypeCheck(tool));
+        b.CloseComponent();
+    };    
+
+}
